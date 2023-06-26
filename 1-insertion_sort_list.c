@@ -1,8 +1,8 @@
 #include "sort.h"
 
 /**
- * insertion_sort_list inserts right unsorted side into left sorted side
- * @list is a doubly linked list to sort
+ * insertion_sort_list - inserts right unsorted side into left sorted side
+ * @list: is a doubly linked list to sort
  *
  * Returns: Nothing
  */
