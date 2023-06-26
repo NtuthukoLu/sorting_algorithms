@@ -1,5 +1,5 @@
 # PROJECT: 0x1B. C - Sorting algorithms & Big O
-### TEAM MEMBERS: Ntuthuko Zimu & Tsuphane Morake
+### :blue_book:Authors:  Ntuthuko Zimu & Tsuphane Morake
 
 ## TASKS:
 ### 0. Bubble sort - 0-bubble_sort.c, 0-O
@@ -14,3 +14,8 @@
 	Function that sorts an array of integers in ascending order using the Selection sort algorithm.
 	The file 2-O contains the big O notations of the time complexity of the Selection sort algorithm.
 
+### 3. Quick sort - 3-quick_sort.c, 3-O
+	Function that sorts an array of integers in ascending order using the Quick sort algorithm.
+	The file 3-O contains the big O notations of the time complexity of the Quick sort algorithm
+
+# :shell: Advance tasks!! :shell:
