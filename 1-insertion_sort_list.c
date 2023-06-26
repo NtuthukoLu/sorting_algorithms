@@ -12,7 +12,6 @@ void insertion_sort_list(listint_t **list)
 
 	if (list == NULL || !(*list) || (*list)->next == NULL)
 		return;
-
 	c = (*list)->next;
 	nextnode = c->next;
 
@@ -29,7 +28,6 @@ void insertion_sort_list(listint_t **list)
 					c->prev->next = c->next;
 					if (c->next)
 						c->next->prev = c->prev;
-
 					c->next = p;
 					c->prev = NULL;
 					*list = c;
@@ -39,17 +37,14 @@ void insertion_sort_list(listint_t **list)
 					c->prev->next = c->next;
 					if (c->next)
 						c->next->prev = c->prev;
-
 					p->prev->next = c;
 					c->prev = p->prev;
 					p->prev = c;
 					c->next = p;
-				}
-				print_list(*list);
+				} print_list(*list);
 				p = c->prev;
 			}
-		}
-		c = nextnode;
+		} c = nextnode;
 		c ? (nextnode = c->next) : (nextnode = NULL);
 	}
 }
