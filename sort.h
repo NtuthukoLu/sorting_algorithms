@@ -47,7 +47,6 @@ void merge_sort(int *array, size_t size);
 
 void heap_sort(int *array, size_t size);
 void heapify(int *array, int i, int len, size_t size);
-void swap(int *a, int *b);
 
 void radix_sort(int *array, size_t size);
 void count_sort(int *in_array, int in_size, int place);
