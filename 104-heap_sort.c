@@ -23,7 +23,7 @@ void swap(int *a, int *b)
 void heapify(int *array, int i, int len, size_t size)
 {
 	int largest = i;
-	int left = (2 + i + 1);
+	int left = (2 * i + 1);
 	int right = (2 * i + 2);
 
 	if (left < len && array[left] > array[largest])
