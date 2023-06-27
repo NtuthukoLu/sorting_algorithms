@@ -39,4 +39,7 @@ void merge(int *A, int *B, int left, int mid, int right);
 void split(int *A, int *B, int left, int right);
 void merge_sort(int *array, size_t size);
 
+void heap_sort(int *array, size_t size);
+void heapify(int *array, int i, int len, size_t size);
+void swap(int *a, int *b);
 #endif
