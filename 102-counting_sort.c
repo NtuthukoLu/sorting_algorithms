@@ -5,10 +5,11 @@
  * @array: array to sort
  * @size: size of array
  */
-void counting_sort(int *array, size_t size) {
-	/* Find the maximum element in the array */
+void counting_sort(int *array, size_t size)
+{
 	int max = array[0];
 	size_t index = 0;
+    int *count = malloc((max + 1) * sizeof(int));
 
 	for (size_t i = 1; i < size; i++)
 	{
@@ -17,7 +18,6 @@ void counting_sort(int *array, size_t size) {
 	}
 
 	/* Create a counting array of size max + 1 and initialize all elements to 0 */
-	int *count = malloc((max + 1) * sizeof(int));
 	if (count == NULL)
 	{
 		printf("Memory allocation failed\n");
