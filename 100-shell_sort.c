@@ -33,7 +33,7 @@ void shell_sort(int *array, size_t size)
 	}
 	for (k = 0; k < (int)size; k++)
 	{
-		printf("%d, ",array[k]);
+		printf("%d  ", array[k]);
 	}
 	printf("\n");
 }
