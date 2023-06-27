@@ -5,46 +5,48 @@
  * @array: array to sort
  * @size: size of array
  */
-void counting_sort(int *array, size_t size)
-{
-	size_t i;
-	int j, k, num, dup;
-	int *counts;
+void counting_sort(int *array, size_t size) {
+	/* Find the maximum element in the array */
+	int max = array[0];
 
-	if (array == NULL || size < 2)
+	for (size_t i = 1; i < size; i++)
+	{
+		if (array[i] > max)
+			max = array[i];
+	}
+
+	/* Create a counting array of size max + 1 and initialize all elements to 0 */
+	int *count = malloc((max + 1) * sizeof(int));
+	if (count == NULL)
+	{
+		printf("Memory allocation failed\n");
 		return;
-	k = array[0]; /* find max num to malloc size of new array */
-	for (i = 1; i < size; i++)
-	{
-		if (array[i] > k)
-			k = array[i];
 	}
-	counts = malloc(sizeof(int) * (k + 1));
-	if (counts == NULL)
-		return;
-	for (j = 0; j < (k + 1); j++) /* memset counts array to 0 */
-		counts[j] = 0;
-	for (i = 0; i < size; i++) /* input counts */
+	for (int i = 0; i <= max; i++)
 	{
-		num = array[i];
-		counts[num] += 1;
+		count[i] = 0;
 	}
-	for (j = 0; j < k; j++) /* update counts array */
+
+	/* Count the occurrences of each element in the array */
+	for (size_t i = 0; i < size; i++)
 	{
-		counts[j + 1] += counts[j];
+		count[array[i]]++;
 	}
-	print_array(counts, k + 1);
-	for (i = 0, j = 0; j < k; j++) /* replace array with sorted */
+
+	/* Print the counting array */
+	for (int i = 0; i <= max; i++)
 	{
-		if ((j == 0) && counts[j] != 0)
+		printf("%d, ", count[i]);
+	} printf("\n");
+
+	/* Update the array with the sorted elements */
+	size_t index = 0;
+	for (int i = 0; i <= max; i++)
+	{
+		while (count[i] > 0)
 		{
-			for ((dup = counts[j]); dup > 0; dup--)
-				array[i++] = j;
+			array[index++] = i;
+			count[i]--;
 		}
-		if (counts[j + 1] > counts[j])
-		{
-			for ((dup = counts[j + 1] - counts[j]); dup > 0; dup--)
-				array[i++] = (j + 1);
-		}
-	} free(counts);
+	} free(count);
 }
