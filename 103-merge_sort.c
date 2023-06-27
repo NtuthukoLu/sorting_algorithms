@@ -9,14 +9,14 @@
  */
 void print_subarray(int *arr, int start, int end)
 {
-        int i = start;
+	int i = start;
 
-        while (i < end - 1)
-        {
-                printf("%d, ", arr[i]);
-                i++;
-        }
-        printf("%d\n", arr[i]);
+	while (i < end - 1)
+	{
+		printf("%d, ", arr[i]);
+		i++;
+	}
+	printf("%d\n", arr[i]);
 }
 
 /**
