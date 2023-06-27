@@ -9,7 +9,7 @@
  */
 void shell_sort(int *array, size_t size)
 {
-	int i, j, k, temp;
+	int i, j, temp;
 	int interval = 1;
 
 	while (interval <= (int)size / 3)
@@ -25,15 +25,10 @@ void shell_sort(int *array, size_t size)
 			while (j > interval - 1 && array[j - interval] >= temp)
 			{
 				array[j] = array[j - interval];
-				j = j - interval;
+				j -= interval;
 			}
 			array[j] = temp;
 		}
 		interval = (interval - 1) / 3;
 	}
-	for (k = 0; k < (int)size; k++)
-	{
-		printf("%d  ", array[k]);
-	}
-	printf("\n");
 }
