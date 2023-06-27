@@ -123,7 +123,7 @@ int card_comp(const card_t *card1, const card_t *card2)
 		case 3:
 			if (card2->kind == 3)
 				suit_greater = TRUE;
-				suit_equal = TRUE;
+			suit_equal = TRUE;
 			break;
 	}
 
