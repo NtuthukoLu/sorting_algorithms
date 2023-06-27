@@ -8,6 +8,7 @@
 void counting_sort(int *array, size_t size) {
 	/* Find the maximum element in the array */
 	int max = array[0];
+	size_t index = 0;
 
 	for (size_t i = 1; i < size; i++)
 	{
@@ -40,7 +41,6 @@ void counting_sort(int *array, size_t size) {
 	} printf("\n");
 
 	/* Update the array with the sorted elements */
-	size_t index = 0;
 	for (int i = 0; i <= max; i++)
 	{
 		while (count[i] > 0)
