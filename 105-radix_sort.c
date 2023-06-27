@@ -1,24 +1,24 @@
 #include "sort.h"
 
 /**
- * radix_sort - sorts array of integers in ascending
- * order.
+ * max_value - max value
  *
  * @array: array of integers greater than or equal to 0
  * @size: size of input array
+ * Return: maximum value
  */
 int max_value(int *array, int size)
 {
 	int i = 1;
 	int iMax = array[0];
-	
+
 	while (i < size)
 	{
 		if (array[i] > iMax)
 			iMax = array[i];
 		i++;
 	}
-	return iMax;
+	return (iMax);
 }
 
 /**
