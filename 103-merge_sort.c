@@ -1,6 +1,25 @@
 #include "sort.h"
 
 /**
+ * print_subarray - prints a subarray,given start and end
+ *
+ * @arr: array containing subarray to print
+ * @start: first index to print
+ * @end: index to print to
+ */
+void print_subarray(int *arr, int start, int end)
+{
+        int i = start;
+
+        while (i < end - 1)
+        {
+                printf("%d, ", arr[i]);
+                i++;
+        }
+        printf("%d\n", arr[i]);
+}
+
+/**
  * merge_sort - sorts array in ascending order
  * using merge sort algorithm
  *
@@ -9,13 +28,20 @@
  */
 void merge_sort(int *array, size_t size)
 {
-	int length = (int)size, i;
-	int *A = array, *B;
+	int length = (int)size;
+	int i;
+	int *A = array;
+	int *B;
 
 	/* Make a copy of input array A into array B */
 	B = malloc(sizeof(int) * length);
-	for (i = 0; i < length; i++)
+	i = 0;
+
+	while (i < length)
+	{
 		B[i] = A[i];
+		i++;
+	}
 
 	split(B, A, 0, length);
 	free(B);
@@ -32,24 +58,23 @@ void merge_sort(int *array, size_t size)
  */
 void split(int *A, int *B, int left, int right)
 {
-	int middle;
+	int mid;
 
 	if (right - left <= 1)
 		return;
 
-	middle = (left + right) / 2;
+	mid = (left + right) / 2;
 
 	/* recursively split */
-	split(B, A, left, middle);
+	split(B, A, left, mid);
 	split(B, A, mid, right);
 
 	/* merge back together */
-	merge(A, B, left, middle, right);
-
+	merge(A, B, left, mid, right);
 	printf("Merging...\n[left]: ");
-	print_subarray(A, left, middle);
+	print_subarray(A, left, mid);
 	printf("[right]: ");
-	print_subarray(A, middle, right);
+	print_subarray(A, mid, right);
 	printf("[Done]: ");
 	print_subarray(B, left, right);
 }
@@ -70,37 +95,19 @@ void merge(int *A, int *B, int left, int mid, int right)
 	aPosition = left;
 	bPosition = mid;
 	i = left;
+
 	while (i < right)
 	{
-		if (aPos < mid && (bPos >= right || A[aPos] <= A[bPos]))
+		if (aPosition < mid && (bPosition >= right || A[aPosition] <= A[bPosition]))
 		{
-			B[i] = A[aPos];
-			aPos++;
+			B[i] = A[aPosition];
+			aPosition++;
 		}
 		else
 		{
-			B[i] = A[bPos];
-			bPos++;
+			B[i] = A[bPosition];
+			bPosition++;
 		}
 		i++;
 	}
-}
-
-/**
- * print_subarray - prints a subarray,given start and end
- *
- * @arr: array containing subarray to print
- * @start: first index to print
- * @end: index to print to
- */
-void print_subarray(int *arr, int start, int end)
-{
-	int i = start;
-
-	while ( i < end - 1)
-	{
-		printf("%d, ", arr[i]);
-		i++;
-	}
-	printf("%d\n", arr[i]);
 }
