@@ -1,5 +1,5 @@
 # PROJECT: 0x1B. C - Sorting algorithms & Big O
-### :blue_book:Authors:  Ntuthuko Zimu & Tsuphane Morake
+### :blue_book:Authors:  Ntuthuko Zimu & Tshupane Morake
 
 ## TASKS:
 ### 0. Bubble sort - 0-bubble_sort.c, 0-O
